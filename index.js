@@ -10,7 +10,7 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 app.post("/ai", async (req, res) => {
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch("https://api.render.com/v1/...", { // Render AI endpoint
       method: "POST",
       headers: {
         "Authorization": `Bearer ${OPENAI_API_KEY}`,
@@ -28,6 +28,4 @@ app.post("/ai", async (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log("AI Proxy running on port " + port);
-});
+app.listen(port, () => console.log("AI Proxy running on port " + port));
