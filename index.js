@@ -10,14 +10,17 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 app.post("/ai", async (req, res) => {
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions
-", { // Render AI endpoint
+    // OpenAI endpoint tek satır ve doğru
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${OPENAI_API_KEY}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(req.body)
+      body: JSON.stringify({
+        model: "gpt-4",             // model belirt
+        messages: req.body.messages // frontend’den gelen mesajlar
+      })
     });
 
     const data = await response.json();
