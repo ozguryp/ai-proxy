@@ -18,7 +18,7 @@ app.post("/ai", async (req, res) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini",             // model belirt
+        model: "GPT-4o",             // model belirt
         messages: req.body.messages // frontend’den gelen mesajlar
       })
     });
